@@ -3,3 +3,4 @@ pylint
 pytest
 pytest-mock
 coverage
+flet==0.21.2
