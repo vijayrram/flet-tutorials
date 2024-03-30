@@ -33,7 +33,8 @@ class Counter:
                     ft.IconButton(ft.icons.REMOVE, on_click=self.decrement),
                     self.text_field,
                     ft.IconButton(ft.icons.ADD, on_click=self.increment),
-                ]
+                ],
+            alignment=ft.MainAxisAlignment.CENTER,
             )
         )
 
