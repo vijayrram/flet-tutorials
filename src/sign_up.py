@@ -1,12 +1,8 @@
-"""Script for the Counter app."""
-
-import flet as ft  # type: ignore
-from flet_core.control_event import ControlEvent  # type: ignore
+import flet as ft
+from flet_core.control_event import ControlEvent       
 
 
-class SignUp:
-    """Class for handling Sign Up screen."""
-
+class sign_up:
     def __init__(self, title: str = "Sign Up", size: int = 400):
         self.title: str = title
         self.size: int = size
@@ -19,11 +15,10 @@ class SignUp:
             page (ft.Page): The page to be rendered on screen.
         """
 
-        self.page = page
-        self.page.title = self.title
-        self.page.vertical_alignment = ft.MainAxisAlignment.CENTER
-        self.page.window_width = self.size
-        self.page.window_height = self.size
+        page.title = self.title
+        page.vertical_alignment = ft.MainAxisAlignment.CENTER
+        page.window_width = self.size
+        page.window_height = self.size
 
         self.textfield_username: ft.TextField = ft.TextField(
             label="username",
@@ -45,6 +40,8 @@ class SignUp:
             width=self.size // 2,
             disabled=True,
         )
+
+        self.page = page
 
         self.textfield_username.on_change = self.validate
         self.textfield_password.on_change = self.validate
@@ -68,14 +65,7 @@ class SignUp:
             )
         )
 
-    # pylint: disable = unused-argument
     def validate(self, event: ControlEvent) -> None:
-        """Method used to validate the status of the Sign Up button.
-
-        Args:
-            event (ControlEvent): Unused.
-        """
-
         if all(
             [
                 self.textfield_username.value,
@@ -89,7 +79,6 @@ class SignUp:
 
         self.page.update()
 
-    # pylint: disable = unused-argument
     def submit(self, event: ControlEvent) -> None:
         """Method to run when the Submit button is clicked.
 
@@ -111,6 +100,15 @@ class SignUp:
         )
 
 
+
+
+
+
+
 if __name__ == "__main__":
-    sign_up: SignUp = SignUp()
-    ft.app(target=sign_up.run)
+    SIGN_UP: sign_up = sign_up()
+    ft.app(target=SIGN_UP.run)
+
+
+
+
