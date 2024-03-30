@@ -12,7 +12,7 @@ class Counter:
         self.text_field: ft.TextField = ft.TextField(
             value=str(start),
             text_align=ft.TextAlign.RIGHT,
-            width=width
+            width=width,
         )
         self.page: ft.Page | None = None
 
@@ -30,15 +30,15 @@ class Counter:
         self.page.add(
             ft.Row(
                 [
-                    ft.IconButton(ft.icons.REMOVE, on_click=self.click_minus),
+                    ft.IconButton(ft.icons.REMOVE, on_click=self.decrement),
                     self.text_field,
-                    ft.IconButton(ft.icons.ADD, on_click=self.click_plus),
+                    ft.IconButton(ft.icons.ADD, on_click=self.increment),
                 ]
             )
         )
 
     # pylint: disable = unused-argument
-    def click_plus(self, event: ControlEvent) -> None:
+    def increment(self, event: ControlEvent) -> None:
         """Method to run if '+' is clicked.
 
         Args:
@@ -51,7 +51,7 @@ class Counter:
         self.page.update()
 
     # pylint: disable = unused-argument
-    def click_minus(self, event: ControlEvent) -> None:
+    def decrement(self, event: ControlEvent) -> None:
         """Method to run if '+' is clicked.
 
         Args:
